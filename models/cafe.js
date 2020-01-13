@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 const cafeSchema = new Schema({
     name: String,
     location: String,
-    websiteUrl: String,
+    websiteURL: String,
     reviews: Array    
 });
 

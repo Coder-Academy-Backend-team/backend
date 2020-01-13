@@ -12,7 +12,7 @@ const index = async (req, res) => {
 
 const create = async(req, res) => {
   console.log("Test...");
-  const { name, location, websiteURL, reviews } = req.body.name;
+  const { name, location, websiteURL, reviews } = req.body;
 
     const newCafe = new Cafe({
         name,
