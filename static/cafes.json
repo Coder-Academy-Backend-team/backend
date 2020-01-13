@@ -1,0 +1,33 @@
+[
+  {
+    "name": "Inzone Cafe",
+    "image": "https://ca-2020app.s3.ap-southeast-2.amazonaws.com/clifford-VobvKmG-StA-unsplash.jpg?response-content-disposition=inline&X-Amz-Security-Token=IQoJb3JpZ2luX2VjELT%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaDmFwLXNvdXRoZWFzdC0yIkYwRAIgN7e4KyFXyjKDu8BgAlyKmUtZ3pLLnnI%2B5fWyoGXEAaECIEzrBaAzD24Q%2FxUqAp8DcTihSh0uxvbyRhYMpUkB7X0rKo0CCD0QABoMMDYxNDEwNDcyMTc4Igw0KczX%2BkJdLx9AGYQq6gGXVWNgKOhLe57LsupqiMcYa9JyjVEOLTxK6ZmbDoJDFABT9l3ZOGSF90gWREKb%2BAJyQIHmS4CYkfUYE25q3aVtHUAvel47l4KZvZuXYgfi5%2Fd8XikoCKJpIlf2o3Vl8lWAHRxN5Cd2w55TEganp68ysAivrRU4ojyXNyDShQiBha2bIAF6KV0vtUCoe292Dvd77UdkkU0NYy506snANx91JOAkvXXdS0kqB7IyUlSaZnz6ueuvXRouETBjjzdavufPzhYpeVMUrwAveZazYljzcBKN0iYkcuWmk4QZaOr5ZHLGNBfFyw2gsZYw4tTv8AU6gwPIR3atGVi19CDBroEuqUsu%2BFsPFc%2BD03VO2mvvkJjxDScrDRHidSmXgTaCUvk1hgARqwOxpZ1sCet9lohDuCLmBmSW7DEym200g4IesMTQz4qE2ZrEmaFqcwuH44Dampz%2ByDRoh4PKJPXNJLJhwM0TRV5P4R6zqLUJPbGUbj5e8OxEc5690GD4XmflVcIjxUdtcntIr8W%2BPp%2F9OvslwrIwm5bkHjzy%2FWTIiav1LGYbjnMBNSb7yOJhmdUZYC5TAsYnAiV85tIVXLMg6uIscqgUqX6nZ8XWD4meqZ5p80pz5CAh9gZ9mW9PFSaC0JkTwpaqiI%2BzcsZtnHnSU3wQhwamZSSbaw%2Fm9bTmBxD2pv9q43o%2FgxgymhU8i5dPJYHUgGV5wu0rzhB5WNCMWO0goIkN9PiWMeslqYd5Z%2BwZmlM6o5mDCzY1dK94GN0moCbxiXp%2BSLOEHEwwFKwQvNUWyonBzmRaK2G89pbOwVqUmRWxGB4kwXMR3ibu9AhbpX45utg7hUA%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200113T040746Z&X-Amz-SignedHeaders=host&X-Amz-Expires=300&X-Amz-Credential=ASIAQ4TCZODZFX334HOQ%2F20200113%2Fap-southeast-2%2Fs3%2Faws4_request&X-Amz-Signature=b4288c205a70cac3ce427aeb49662401b10bef2ccd7fae0dee9307c055a84cd9",
+    "location": "3/120 Spencer St, Melbourne VIC 3000, Australia",
+    "websiteUrl": "https://www.facebook.com/inzonecafe",
+    "reviews": []
+  },
+  {
+    "name": "Piccolo Me",
+    "location": "120 Spencer St, Melbourne VIC 3000, Australia",
+    "websiteUrl": "https://piccolome.com/",
+    "reviews": []
+  },
+  {
+    "name": "Higher Ground",
+    "location": "650 Little Bourke St, Melbourne VIC 3000, Australia",
+    "websiteUrl": "http://highergroundmelbourne.com.au/",
+    "reviews": []
+  },
+  {
+    "name": "Grain Store",
+    "location": "517 Flinders Ln, Melbourne VIC 3000, Australia",
+    "websiteUrl": "https://grainstore.com.au/",
+    "reviews": []
+  },
+  {
+    "name": "Brother Baba Budan",
+    "location": "359 Little Bourke St, Melbourne VIC 3000, Australia",
+    "websiteUrl": "https://sevenseeds.com.au/pages/brother-baba-budan",
+    "reviews": []
+  }
+]
