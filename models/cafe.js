@@ -8,6 +8,9 @@ const cafeSchema = new Schema({
     location: String,
     websiteURL: String,
     reviews: Array    
+},
+{
+    collection: 'cafes'
 });
 
 const Cafe = mongoose.model("Cafe", cafeSchema);
