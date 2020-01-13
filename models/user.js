@@ -32,6 +32,10 @@ const userSchema = new Schema({
       },
       message: props => `${props.value} is not a valid email address!`
     }
+  },
+  token: 
+  {
+    type: String
   }
 },{
   collection: 'users'
