@@ -39,7 +39,10 @@ const reviewSchema = new Schema({
         maxlength: 500
     }
 },
-{ timestamps: true}
+{ timestamps: true},
+{
+    collection: 'reviews'
+}
 );
 
 const Review = mongoose.model("Review", reviewSchema);
