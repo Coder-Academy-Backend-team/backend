@@ -26,8 +26,7 @@ app.use(express.json());
 app.use(cors());
 
 //Connecting the routes
-// app.use(require('./routes/index'));
-// app.use(router);
+app.use(require('./routes/index'));
 
 app.listen(PORT,
     () => console.log(`Listening on port ${PORT}`)
