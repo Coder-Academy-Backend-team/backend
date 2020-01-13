@@ -1,9 +1,9 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-if (process.env.NODE_ENV !== 'production') {
-    require('dotenv').config();
-}
+
+require('dotenv').config();
+
 
 const PORT = process.env.PORT || 5550;
 
