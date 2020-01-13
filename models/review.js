@@ -3,11 +3,33 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const reviewSchema = new Schema({
-    coffeeType: String,
-    milkType: String,
-    photo: String,
-    rating: Number,
-    comment: String
+    coffeeType: 
+    {
+        type: String,
+        required: true
+    },
+    milkType: 
+    {
+        type: String,
+        required: true
+    },
+    photo:
+    {
+        type: String,
+        required: true
+    },
+    rating:
+    {
+        type: Number,
+        required: true
+    },
+    comment: 
+    {
+        type: String,
+        required: true,
+        minlength: 5,
+        maxlength: 100
+    }
 },
 { timestamps: true}
 );
