@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const { index, create } = require("../controllers/review-controller");
+const { index, create } = require("../controllers/cafe-controllers");
 //here we are going to create routes
 router.get('/', index);
 router.post('/create', create);
@@ -9,26 +9,27 @@ router.post('/create', create);
 
 //add cafe
 router.post('/create', (req, res) => {
-    const { name, location, rating, description, link } = req.body.name;
+    const { name, location, websiteURL, reviews } = req.body.name;
 
-    const newReview = new Review({
+    const newCafe = new Cafe({
         name,
         location,
-        rating,
-        description,
-        link,
+        websiteURL,
+        reviews
     })
 
-    newReview.save()
-        .then(() => res.json('Review added!'))
+    newCafe.save()
+        .then(() => res.json('Cafe added!'))
         .catch(err => res.status(400).json('Error: ' + err));
 });
 
 // router.delete();
-
+router.delete()
 
 // find all cafe
 
 // find one cafe
+
+//
 
 module.exports = router;
