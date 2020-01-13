@@ -2,7 +2,7 @@ const Review = require("../models/review");
 const Cafe = require("../models/cafe");
 const mongoose = require('mongoose');
 
-const index = async (req, res) => {
+const index = (req, res) => {
   const query = await Review.find({});
   query instanceof mongoose.Query;
   const docs = await query;
@@ -11,7 +11,7 @@ const index = async (req, res) => {
   return res;
 }
 
-const createReview = async (req, res) => {
+const createReview = (req, res) => {
   const { coffeeType, milkType, photo, rating, comment, cafe } = req.body;
 
   const newReview = new Review({
@@ -36,7 +36,7 @@ const createReview = async (req, res) => {
     .catch(err => res.status(400).send('Error: ' + err));
 }
 
-const deleteReview = async (req, res) => {
+const deleteReview = (req, res) => {
   const { id } = req.params;
 
   Review.findById(id)
@@ -56,7 +56,7 @@ const deleteReview = async (req, res) => {
 }
 
 //find by coffee
-const searchByCoffeeType = async (req, res) => {
+const searchByCoffeeType = (req, res) => {
   const { type } = req.params;
   Reviews.find({ coffeeType: type })
     .then((reviews) => {
@@ -66,7 +66,7 @@ const searchByCoffeeType = async (req, res) => {
 }
 
 //find by cafe
-const searchByCafe = async (req, res) => {
+const searchByCafe = (req, res) => {
   const { name } = req.params;
   Cafe.find({ name })
     .then((cafe) => {
