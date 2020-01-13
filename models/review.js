@@ -2,7 +2,15 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
+const {ObjectId} = mongoose.Schema.Types;
+
 const reviewSchema = new Schema({
+
+    cafe: 
+    {
+        type: ObjectId,
+        ref: 'cafe'
+    },
     coffeeType: 
     {
         type: String,
