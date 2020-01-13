@@ -4,6 +4,7 @@ const cors = require('cors');
 if (process.env.NODE_ENV !== 'production') {
     require('dotenv').config();
 }
+// const router = require("./routes/index");
 
 const PORT = process.env.PORT || 5550;
 
@@ -26,6 +27,7 @@ app.use(cors());
 
 //Connecting the routes
 // app.use(require('./routes/index'));
+// app.use(router);
 
 app.listen(PORT,
     () => console.log(`Listening on port ${PORT}`)
