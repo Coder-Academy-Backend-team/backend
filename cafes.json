@@ -1,0 +1,24 @@
+[
+		{
+			"cafe_name": "...",
+			"cafe_location": "...",
+			"website": "...",
+			"coffee": 
+			[ 
+				{ "name": "cappuccino" },
+				{ "name": "latte" },
+				{ "name": "long black" }
+			]
+		},
+		{
+			"cafe_name": "...",
+			"cafe_location": "...",
+			"website": "...",
+			"coffee": 
+			[ 
+				{ "name": "cappuccino" },
+				{ "name": "latte" },
+				{ "name": "long black" }
+			]
+		}
+]
