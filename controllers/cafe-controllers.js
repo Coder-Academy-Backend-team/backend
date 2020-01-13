@@ -1,4 +1,4 @@
-const Cafe = require('../models/Cafe');
+const Cafe = require('../models/cafe');
 const mongoose = require('mongoose');
 
 const index = async (req, res) => {
