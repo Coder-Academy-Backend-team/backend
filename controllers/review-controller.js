@@ -37,6 +37,15 @@ const createReview = async (req, res) => {
 
 const deleteReview = async (req, res) => {
   const { id } = req.params;
+
+  Cafe.findById(cafeId)
+    .then(cafe => {
+      const index = cafe.reviews.indexOf(id);
+      cafe.reviews.splice(index, 1);
+      cafe.save();
+    })
+    .catch(err => res.status(400).json('Error: ' + err));
+
   Review.findByIdAndDelete(id)
     .then(() => res.json('Review deleted.'))
     .catch(err => res.status(400).json('Error: ' + err));

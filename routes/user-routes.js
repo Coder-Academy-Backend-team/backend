@@ -1,11 +1,14 @@
-const router = require('express').Router();
+const express = require('express');
+const router = express.Router();
 
-//user login
-
-
-//user logout
-
-//admin login
+const { index, createUser, deleteUser, findOneUser } = require("../controllers/user-controllers");
 
 
-//admin logout
+
+
+router.get('/', index);
+router.post('/create', createUser);
+router.delete('/delete/:id', deleteUser);
+router.get('/:id', findOneUser)
+
+module.exports = router;

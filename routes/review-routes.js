@@ -5,7 +5,7 @@ const { index, createReview, deleteReview, searchByCoffeeType, searchByCafe } = 
 //here we are going to create routes
 router.get('/', index);
 router.post('/create', createReview);
-router.delete("/delete", deleteReview);
+router.delete("/delete/:id", deleteReview);
 router.get("/search/coffee/:type", searchByCoffeeType);
 router.get("/search/cafe/:name", searchByCafe);
 
