@@ -5,7 +5,11 @@ const Schema = mongoose.Schema;
 const {ObjectId} = mongoose.Schema.Types;
 
 const reviewSchema = new Schema({
-
+    reviewer: 
+    {
+        type: ObjectId,
+        ref: 'user'
+    },
     cafe: 
     {
         type: ObjectId,
