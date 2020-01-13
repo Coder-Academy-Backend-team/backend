@@ -6,8 +6,8 @@ const { index, create, deleteCafe, findOneCafe } = require("../controllers/cafe-
 //here we are going to create routes
 
 router.get('/', index);
-router.post('/create', create);
-router.delete('/delete/:id', deleteCafe);
+// router.post('/create', create);
+// router.delete('/delete/:id', deleteCafe);
 router.get('/:id', findOneCafe)
 
 

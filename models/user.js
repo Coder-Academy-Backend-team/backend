@@ -29,7 +29,8 @@ const userSchema = new Schema({
       message: props => `${props.value} is not a valid email address!`
     }
   }
-  
+},{
+  collection: 'cafes'
 });
 
 const User = mongoose.model("User", userSchema);
