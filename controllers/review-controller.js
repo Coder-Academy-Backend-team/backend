@@ -25,7 +25,7 @@ const getCafesForReviews = async (reviewArray) => {
 }
 
 const createReview = async (req, res) => {
-  const { coffeeType, milkType, photo, rating, comment, cafe } = req.body;
+  const { coffeeType, milkType, photo, rating, comment, cafe, reviewer } = req.body;
 
   const newReview = new Review({
     coffeeType,
@@ -33,7 +33,8 @@ const createReview = async (req, res) => {
     photo,
     rating,
     comment,
-    cafe
+    cafe,
+    reviewer
   });
 
   try {
