@@ -1,9 +1,10 @@
 const Review = require("../models/review");
-// const Cafe = require("../models/cafe");
 const mongoose = require('mongoose');
 
+const SEARCH_LIMIT = 6;
+
 const index = async (req, res) => {
-  const query = await Review.find({});
+  const query = await Review.find().sort("-createdAt").limit(SEARCH_LIMIT);
   query instanceof mongoose.Query;
   const docs = await query;
   res.send(docs);
