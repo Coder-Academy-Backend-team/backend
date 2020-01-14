@@ -59,9 +59,9 @@ const searchByCoffeeType = async (req, res) => {
 
 //find by cafe
 const searchByCafe = async (req, res) => {
-  const { id } = req.params;
+  const { name } = req.params;
   try {
-    const cafe = await getCafe(id);
+    const cafe = await Cafe.findOne({ name });
     const reviewsArray = cafe.reviews.map(getReview);
     const array = await Promise.all(reviewsArray);
     res.json({

@@ -4,6 +4,6 @@ const { searchByCoffeeType, searchByCafe } = require("../controllers/review-cont
 
 //here we are going to create routes
 router.get("/coffee/:type", searchByCoffeeType);
-router.get("/cafe/:id", searchByCafe);
+router.get("/cafe/:name", searchByCafe);
 
 module.exports = router;
