@@ -1,6 +1,8 @@
 const User = require('../models/user');
 const mongoose = require('mongoose');
 
+
+
 const index = async (req, res) => {
   const query = await User.find({});
   query instanceof mongoose.Query;
@@ -21,6 +23,8 @@ const createUser = async(req, res) => {
       email
     })
 
+    newUser.setPassword(password);
+
     newUser.save()
     .then(()=>res.json('User added!'))
     .catch(err=> res.status(400).json('Error: ' + err));
@@ -39,4 +43,28 @@ const findOneUser = async (req, res)=> {
   .catch(err => res.status(400).json('Error: ' + err));
 };
 
-module.exports = { index, createUser, deleteUser, findOneUser }
+const login = async (req, res) => {
+  const {username, password} = await req.body;
+  User.findOne({username : username }, function(err, user) {
+    if (user === null) {
+      res.status(400).send({
+        message: 'User not found.'
+      });
+    }
+    else {
+      if (user.validPassword(password)) {
+        res.status(201).send({
+          message: 'User Logged in',
+        })
+      }
+      else {
+        res.status(400).send({
+          message: 'Wrong Password'
+        })
+      }
+    }
+  })
+  return res
+}
+
+module.exports = { index, createUser, deleteUser, findOneUser, login }
