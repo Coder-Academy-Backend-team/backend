@@ -48,9 +48,8 @@ const deleteReview = (req, res) => {
           cafe.save();
         })
         .catch(err => res.status(400).send('Error: ' + err));
-      res.json('Review deleted.')
-
       review.remove();
+      res.send('Review deleted.');
     })
     .catch(err => res.status(400).send('Error: ' + err));
 }
@@ -67,7 +66,6 @@ const searchByCoffeeType = (req, res) => {
 
 const getReview = async (reviewId) => {
   const review = await Review.findById(reviewId);
-  console.log(review);
   return review;
 }
 
