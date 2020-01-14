@@ -41,4 +41,20 @@ const findOneCafe = async (req, res) => {
     .catch(err => res.status(400).json('Error: ' + err));
 };
 
-module.exports = { index, create, deleteCafe, findOneCafe }
+const findCafeByName = async (req, res) => {
+  const {name} = req.params;
+  // const regexpress = new RegExp(`^${name}$`);
+  Cafe.find({ "name": { "$regex": name, "$options": "i" }})
+  .then(cafe => res.json(cafe))
+  .catch(err => res.status(400).json('Error: ' + err));
+}
+
+const findCafeByLocation = async (req, res) => {
+  const {location} = req.params;
+  // const regexpress = new RegExp(`^${name}$`);
+  Cafe.find({ "location": { "$regex": location, "$options": "i" }})
+  .then(cafe => res.json(cafe))
+  .catch(err => res.status(400).json('Error: ' + err));
+}
+
+module.exports = { index, create, deleteCafe, findOneCafe, findCafeByName, findCafeByLocation }
