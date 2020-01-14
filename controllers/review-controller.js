@@ -11,7 +11,7 @@ const index = async (req, res) => {
   return res;
 }
 
-const createReview = (req, res) => {
+const createReview = async (req, res) => {
   const { coffeeType, milkType, photo, rating, comment, cafe } = req.body;
 
   const newReview = new Review({
@@ -23,45 +23,40 @@ const createReview = (req, res) => {
     cafe
   });
 
-  newReview.save()
-    .then(() => {
-      Cafe.findById(cafe)
-        .then(cafe => {
-          cafe.reviews.push(newReview._id);
-          cafe.save();
-        })
-        .catch(err => res.status(400).send('Error: ' + err));
-      res.json(newReview);
-    })
-    .catch(err => res.status(400).send('Error: ' + err));
+  try {
+    await newReview.save();
+    const cafeObject = await Cafe.findById(cafe);
+    cafeObject.reviews.push(newReview._id);
+    cafeObject.save();
+
+    res.json(newReview);
+  }
+  catch (err) { res.status(400).send('Error: ' + err); }
 }
 
-const deleteReview = (req, res) => {
+const deleteReview = async (req, res) => {
   const { id } = req.params;
 
-  Review.findById(id)
-    .then((review) => {
-      Cafe.findById(review.cafe)
-        .then(cafe => {
-          const index = cafe.reviews.indexOf(id);
-          cafe.reviews.splice(index, 1);
-          cafe.save();
-        })
-        .catch(err => res.status(400).send('Error: ' + err));
-      review.remove();
-      res.send('Review deleted.');
-    })
-    .catch(err => res.status(400).send('Error: ' + err));
+  try {
+    const review = await Review.findById(id);
+    const cafe = await Cafe.findById(review.cafe);
+    const index = cafe.reviews.indexOf(id);
+    cafe.reviews.splice(index, 1);
+    cafe.save();
+    review.remove();
+    res.send('Review deleted.');
+  }
+  catch (err) { res.status(400).send('Error: ' + err); }
 }
 
 //find by coffee
-const searchByCoffeeType = (req, res) => {
+const searchByCoffeeType = async (req, res) => {
   const { type } = req.params;
-  Review.find({ coffeeType: type })
-    .then((reviews) => {
-      res.json(reviews);
-    })
-    .catch(err => res.status(400).send('Error: ' + err));
+  try {
+    const reviews = await Review.find({ coffeeType: type });
+    res.json(reviews);
+  }
+  catch (err) { res.status(400).send('Error: ' + err); }
 }
 
 const getReview = async (reviewId) => {
@@ -70,15 +65,15 @@ const getReview = async (reviewId) => {
 }
 
 //find by cafe
-const searchByCafe = (req, res) => {
+const searchByCafe = async (req, res) => {
   const { id } = req.params;
-  Cafe.findById(id)
-    .then(async (cafe) => {
-      const reviewsArray = cafe.reviews.map(getReview);
-      const array = await Promise.all(reviewsArray)
-      res.json(array);
-    })
-    .catch(err => res.status(400).send('Error: ' + err));
-};
+  try {
+    const cafe = await Cafe.findById(id)
+    const reviewsArray = cafe.reviews.map(getReview);
+    const array = await Promise.all(reviewsArray)
+    res.json(array);
+  }
+  catch (err) { res.status(400).send('Error: ' + err) }
+}
 
 module.exports = { index, createReview, deleteReview, searchByCafe, searchByCoffeeType };
