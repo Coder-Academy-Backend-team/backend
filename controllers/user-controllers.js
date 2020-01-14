@@ -1,5 +1,7 @@
 const User = require('../models/user');
 const mongoose = require('mongoose');
+const jwt = require('jsonwebtoken');
+
 
 
 
@@ -53,9 +55,15 @@ const login = async (req, res) => {
     }
     else {
       if (user.validPassword(password)) {
-        res.status(201).send({
-          message: 'User Logged in',
-        })
+        let token = jwt.sign({username: username},
+          process.env.TOKEN_SECRET,
+          {expiresIn: '24h'})
+
+        res.status(201).json({
+          success: true,
+          message: 'Authentication successful',
+          token: token
+        });
       }
       else {
         res.status(400).send({
