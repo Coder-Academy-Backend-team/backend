@@ -7,6 +7,6 @@ router.get('/', index);
 router.post('/create', createReview);
 router.delete("/delete/:id", deleteReview);
 router.get("/search/coffee/:type", searchByCoffeeType);
-router.get("/search/cafe/:name", searchByCafe);
+router.get("/search/cafe/:id", searchByCafe);
 
 module.exports = router;

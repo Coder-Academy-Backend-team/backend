@@ -58,19 +58,27 @@ const deleteReview = (req, res) => {
 //find by coffee
 const searchByCoffeeType = (req, res) => {
   const { type } = req.params;
-  Reviews.find({ coffeeType: type })
+  Review.find({ coffeeType: type })
     .then((reviews) => {
-      res.json(reviews)
+      res.json(reviews);
     })
     .catch(err => res.status(400).send('Error: ' + err));
 }
 
+const getReview = async (reviewId) => {
+  const review = await Review.findById(reviewId);
+  console.log(review);
+  return review;
+}
+
 //find by cafe
 const searchByCafe = (req, res) => {
-  const { name } = req.params;
-  Cafe.find({ name })
-    .then((cafe) => {
-      res.json(cafe.reviews)
+  const { id } = req.params;
+  Cafe.findById(id)
+    .then(async (cafe) => {
+      const reviewsArray = cafe.reviews.map(getReview);
+      const array = await Promise.all(reviewsArray)
+      res.json(array);
     })
     .catch(err => res.status(400).send('Error: ' + err));
 };
