@@ -54,9 +54,11 @@ const login = async (req, res) => {
       });
     }
     else {
+      console.log(user);
+      
       if (user.validPassword(password)) {
         let token = jwt.sign({username: username},
-          process.env.TOKEN_SECRET,
+          user.isAdmin? process.env.ADMIN_SECRET : process.env.TOKEN_SECRET,
           {expiresIn: '24h'})
 
         res.status(201).json({

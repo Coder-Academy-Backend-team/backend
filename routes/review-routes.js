@@ -6,6 +6,6 @@ const { createReview, deleteReview, allReviews } = require("../controllers/revie
 //here we are going to create routes
 router.get('/all', allReviews);
 router.post('/create', middleware.checkToken, createReview);
-router.delete("/delete/:id", middleware.checkToken, deleteReview);
+router.delete("/delete/:id", middleware.checkAdminToken, deleteReview);
 
 module.exports = router;
